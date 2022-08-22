@@ -15,7 +15,7 @@ public class Hello {
 	// 프로그램 실행 진입점. main 메소드
 	public static void main(String[] args) {
 		// 출력하는 코드
-		System.out.println("Hello,Java2");
+		System.out.println("Hello,Java1232");
 	}
 
 }
