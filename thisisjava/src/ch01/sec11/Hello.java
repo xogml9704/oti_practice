@@ -3,7 +3,7 @@ package ch01.sec11;
 public class Hello {
 	
 	/**
-	 * @author 황건희
+	 * @author 김태희
 	 * @param args
 	 */
 	
