@@ -24,5 +24,6 @@ public class InfinityAndNaNCheckExample {
 		}
 		// int result = 5 / 0; // 실행 오류가 생긴다.
 		double result = 5 / 0.0; // 정상 실행은 되지만 값은 infinite, 또는 NaN
+		System.out.println(result);
 	}
 }
