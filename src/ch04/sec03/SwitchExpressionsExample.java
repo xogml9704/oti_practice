@@ -1,6 +1,6 @@
 package ch04.sec03;
 
-public class SwitchExpressonsExample {
+public class SwitchExpressionsExample {
 	public static void main(String[] args) {
 		char grade = 'B';
 		
