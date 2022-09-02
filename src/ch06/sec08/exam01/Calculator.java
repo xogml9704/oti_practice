@@ -56,7 +56,7 @@ public class Calculator {
 	}
 	
 	int random(int x, int y) {
-		int num = (int)(Math.random()*(y-x+1))+ x;
+		int num = (int)(Math.random()*y)+ x;
 		return num;
 	}
 }
