@@ -5,7 +5,7 @@ public class InstanceofExample {
 	public static void personInfo(Person person) {
 		System.out.println("name :"+ person.name);
 		person.walk();
-		
+		/*
 		// person이 참조하는 객체가 Student 타입인지 확인
 		if(person instanceof Student) {
 			// Student 객체일 경우 강제 타입 변환
@@ -14,6 +14,7 @@ public class InstanceofExample {
 			System.out.println("studentNo : "+ student.studentNo);
 			student.study();
 		}
+		*/
 	
 		// person이 참조하는 객체가 Student 타입일 경우
 		// Student 변수에 대입(타입 변환 발생)
