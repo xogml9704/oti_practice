@@ -2,23 +2,19 @@ package practice;
 
 public class MainExample {
 	public static void main(String[] args) {
+		String[] strArray = {"10", "2a"};
 		
-		String phone_number = "12345678";
-		
-		String[] empty=phone_number.split("");
-		String empty2="";
-		int i =0;
-		int j =0;
-		for(i=0; i<empty.length-4; i++) {
-			
-			empty[i]="*";
-			empty2+=empty[i];
-	      
+		int value = 0;
+		for(int i=0; i<=2; i++) {
+			try {
+				value = Integer.parseInt(strArray[i]);
+			} catch(ArrayIndexOutOfBoundsException e) {
+				System.out.println("인덱스를 초과했음");
+			} catch(NumberFormatException e) {
+				System.out.println("숫자로 변환할 수 없음");
+			} finally {
+				System.out.println(value);
+			}
 		}
-		for(j=empty.length-4; j<empty.length; j++) {
-			empty2+=empty[j];
-		}
-		
-		System.out.println(empty2);
 	}
 }
