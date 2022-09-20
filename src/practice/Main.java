@@ -1,9 +1,16 @@
 package practice;
 
+import lombok.Data;
+
+@Data
 public class Main {
-	String nation = "대한민국";
+	private String id;
+	private String name;
+	private int age;
 	
-	void method2() {
-		nation = "한국";
+	public Main(String id, String name, int age) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
 	}
 }
