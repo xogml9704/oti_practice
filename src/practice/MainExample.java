@@ -1,32 +1,49 @@
 package practice;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainExample {
 	public static void main(String[] args) {
-		// Queue 컬렉션 생성
-		Queue<Main> mes = new LinkedList<>();
+		// Map 컬렉션 생성
+		Map<Integer, String> map = Collections.synchronizedMap(new HashMap<>());
 		
-		// 메시지 넣기
-		mes.offer(new Main("sendMail", "홍길동"));
-		mes.offer(new Main("sendSMS", "신용권"));
-		mes.offer(new Main("sendKakaotalk", "감자바"));
-		
-		// 메시지를 하나씩 꺼내어 처리
-		while(!mes.isEmpty()) {
-			Main main = mes.poll();
-			switch(main.command) {
-				case "sendMail":
-					System.out.println(main.to + "님에게 메일을 보냅니다.");
-					break;
-				case "sendSMS":
-					System.out.println(main.to + "님에게 SMS를 보냅니다.");
-					break;
-				case "sendKakaotalk":
-					System.out.println(main.to + "님에게 카카오톡을 보냅니다.");
-					break;
+		// 작업 스레드 객체 생성
+		Thread threadA = new Thread() {
+			public void run() {
+				// 객체 1000개 추가
+				for(int i=1; i<= 1000; i++) {
+					map.put(i, "내용"+i);
+				}
 			}
+		};
+		
+		// 작업 스레드 객체 생성
+		Thread threadB = new Thread() {
+			public void run() {
+				// 객체 1000개 추가
+				for(int i= 1001; i<=2000; i++) {
+					map.put(i, "내용"+i);
+				}
+			}
+		};
+		
+		// 작업 스레드 실행
+		threadA.start();
+		threadB.start();
+		
+		// 작업 스레드들이 모두 종료될 떄까지 메인 스레드를 기다리게 함
+		try {
+			threadA.join();
+			threadB.join();
+		} catch(Exception e) {
+			
 		}
+		
+		// 저장된 총 객체 수 업기
+		int size = map.size();
+		System.out.println("총 객체 수 : " + size);
+		System.out.println();
 	}
 }
