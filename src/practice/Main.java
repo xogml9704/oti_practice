@@ -1,16 +1,11 @@
 package practice;
 
-import lombok.Data;
-
-@Data
 public class Main {
-	private String id;
-	private String name;
-	private int age;
+	public String name;
+	public int price;
 	
-	public Main(String id, String name, int age) {
-		this.id = id;
+	public Main(String name, int price) {
 		this.name = name;
-		this.age = age;
+		this.price = price;
 	}
 }
