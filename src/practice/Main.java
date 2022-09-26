@@ -1,11 +1,11 @@
 package practice;
 
 public class Main {
-	public String name;
-	public int price;
+	public String command;
+	public String to;
 	
-	public Main(String name, int price) {
-		this.name = name;
-		this.price = price;
+	public Main(String command, String to) {
+		this.command = command;
+		this.to = to;
 	}
 }
