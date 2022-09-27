@@ -1,49 +1,53 @@
 package practice;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class MainExample {
 	public static void main(String[] args) {
-		// Map 컬렉션 생성
-		Map<Integer, String> map = Collections.synchronizedMap(new HashMap<>());
+		// List 불변 컬렉션 생성
+		List<String> immutableList = List.of("A", "B", "C");
 		
-		// 작업 스레드 객체 생성
-		Thread threadA = new Thread() {
-			public void run() {
-				// 객체 1000개 추가
-				for(int i=1; i<= 1000; i++) {
-					map.put(i, "내용"+i);
-				}
-			}
-		};
+		// Set 불변 컬렉션 생성
+		Set<String> immutableSet = Set.of("A", "B", "C");
 		
-		// 작업 스레드 객체 생성
-		Thread threadB = new Thread() {
-			public void run() {
-				// 객체 1000개 추가
-				for(int i= 1001; i<=2000; i++) {
-					map.put(i, "내용"+i);
-				}
-			}
-		};
+		// Map 불변 컬렉션 생성
+		Map<Integer, String> immutableMap = Map.of(
+				1, "A",
+				2, "B",
+				3, "C"
+				);
 		
-		// 작업 스레드 실행
-		threadA.start();
-		threadB.start();
+		// List 컬렉션을 불변 컬렉션으로 복사
+		List<String> list = new ArrayList<>();
+		list.add("A");
+		list.add("B");
+		list.add("C");
+		List<String> immutableList2 = List.copyOf(list);
 		
-		// 작업 스레드들이 모두 종료될 떄까지 메인 스레드를 기다리게 함
-		try {
-			threadA.join();
-			threadB.join();
-		} catch(Exception e) {
-			
-		}
+		// Set 컬렉션을 불변 컬렉션으로 복사
+		Set<String> set = new HashSet<>();
+		set.add("A");
+		set.add("B");
+		set.add("C");
+		Set<String> immutableSet2 = Set.copyOf(set);
 		
-		// 저장된 총 객체 수 업기
-		int size = map.size();
-		System.out.println("총 객체 수 : " + size);
-		System.out.println();
+		// Map 컬렉션을 불변 컬렉션으로 복사
+		Map<Integer, String> map = new HashMap<>();
+		map.put(1, "A");
+		map.put(2, "B");
+		map.put(3, "C");
+		Map<Integer, String> immutableMap2 = Map.copyOf(map);
+		
+		// 배열로부터 List 불변 컬렉션 생성
+		String[] arr = {"A", "B", "C"};
+		List<String> immutableList3 = Arrays.asList(arr);
+		
+		
 	}
 }
