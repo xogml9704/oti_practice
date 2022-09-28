@@ -2,52 +2,32 @@ package practice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class MainExample {
 	public static void main(String[] args) {
-		// List 불변 컬렉션 생성
-		List<String> immutableList = List.of("A", "B", "C");
+		// 문장 스트림을 단어 스트림으로 변환
+		List<String> list1 = new ArrayList<>();
 		
-		// Set 불변 컬렉션 생성
-		Set<String> immutableSet = Set.of("A", "B", "C");
+		list1.add("this is java");
+		list1.add("i am a best developer");
+		list1.stream()
+			.flatMap(data -> Arrays.stream(data.split(" ")))
+			.forEach(word -> System.out.print(word + ", "));
 		
-		// Map 불변 컬렉션 생성
-		Map<Integer, String> immutableMap = Map.of(
-				1, "A",
-				2, "B",
-				3, "C"
-				);
+		System.out.println();
 		
-		// List 컬렉션을 불변 컬렉션으로 복사
-		List<String> list = new ArrayList<>();
-		list.add("A");
-		list.add("B");
-		list.add("C");
-		List<String> immutableList2 = List.copyOf(list);
-		
-		// Set 컬렉션을 불변 컬렉션으로 복사
-		Set<String> set = new HashSet<>();
-		set.add("A");
-		set.add("B");
-		set.add("C");
-		Set<String> immutableSet2 = Set.copyOf(set);
-		
-		// Map 컬렉션을 불변 컬렉션으로 복사
-		Map<Integer, String> map = new HashMap<>();
-		map.put(1, "A");
-		map.put(2, "B");
-		map.put(3, "C");
-		Map<Integer, String> immutableMap2 = Map.copyOf(map);
-		
-		// 배열로부터 List 불변 컬렉션 생성
-		String[] arr = {"A", "B", "C"};
-		List<String> immutableList3 = Arrays.asList(arr);
-		
-		
+		// 문자열 숫자 목록 스트림을 숫자 스트림으로 변환
+		List<String> list2 = Arrays.asList("10, 20, 30", "40, 50");
+		list2.stream()
+			.flatMapToInt(data -> {
+				String[] strArr = data.split(",");
+				int[] intArr = new int[strArr.length];
+				for(int i=0; i< strArr.length; i++) {
+					intArr[i] = Integer.parseInt(strArr[i].trim());
+				}
+				return Arrays.stream(intArr);
+			})
+			.forEach(number -> System.out.println(number));
 	}
 }
