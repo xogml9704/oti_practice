@@ -1,25 +1,63 @@
 package practice;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MainExample {
 	public static void main(String[] args) {
-		List<Main> list = Arrays.asList(
-				new Main("홍길동", 92),
-				new Main("신용권", 95),
-				new Main("감자바", 88)
-				);
+		List<Main> list = new ArrayList<>();
+		list.add(new Main("홍길동", "남", 92));
+		list.add(new Main("김수영", "여", 87));
+		list.add(new Main("감자바", "남", 95));
+		list.add(new Main("오해영", "여", 93));
 		
-		int sum1 = list.stream()
-				.mapToInt(Main :: getScore)
-				.sum();
+		// 남학생만 묶어 List 생성
+		List<Main> maleList = list.stream()
+				.filter(s -> s.getSex().equals("남"))
+				.collect(Collectors.toList());
 		
-		int sum2 = list.stream()
-				.map(Main :: getScore)
-				.reduce(0, (a, b) -> a + b);
+		List<Main> maleList2 = list.stream()
+				.filter(s -> s.getSex().equals("남"))
+				.toList();
 		
-		System.out.println("sum1 : " + sum1);
-		System.out.println("sum2 : " + sum2);
+		maleList.stream()
+			.forEach(s -> System.out.println("maleList : " + s.getName()));
+		
+		System.out.println();
+		
+		maleList2.stream()
+			.forEach(s -> System.out.println("maleList2 : " + s.getName()));
+		
+		System.out.println();
+		
+		List<Main> femaleList = list.stream()
+				.filter(s -> s.getSex().equals("여"))
+				.collect(Collectors.toList());
+		
+		femaleList.stream()
+			.forEach(s -> System.out.println("femaleList : " + s.getName()));
+		
+		System.out.println();
+		
+		Map<String, Integer> map = list.stream()
+				.collect(
+						Collectors.toMap
+								s -> s.getName(),
+								s -> s.getScore()
+								)
+						);
+		System.out.println(map);
+		
+		Map<String, List<Main>> map2 = list.stream()
+				.collect(
+						Collectors.groupingBy(s -> s.getSex())
+						);
+		
+		List<Main> maleList3 = map2.get("남");
+		maleList3.stream().forEach(s -> System.out.println(s.getName()));
+		System.out.println();
+
 	}
 }
