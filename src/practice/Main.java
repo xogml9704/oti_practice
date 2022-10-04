@@ -1,18 +1,12 @@
 package practice;
 
 public class Main {
-	private String name;
-	private String sex;
-	private int score;
-	
-	public Main(String name, String sex, int score) {
-		this.name = name;
-		this.sex = sex;
-		this.score = score;
-	}
-	
-	public String getName() { return name; }
-	public String getSex() { return sex; }
-	public int getScore() { return score; }
-	
+    // 정사각형의 넓이
+    double areaRectangle(double width) {
+        return width * width;
+    }
+    
+    double areaRectangle(double width, double height) {
+        return width * height;
+    }
 }
