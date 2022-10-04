@@ -43,7 +43,7 @@ public class MainExample {
 		
 		Map<String, Integer> map = list.stream()
 				.collect(
-						Collectors.toMap
+						Collectors.toMap(10, 10)
 								s -> s.getName(),
 								s -> s.getScore()
 								)
