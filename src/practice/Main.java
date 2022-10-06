@@ -1,12 +1,15 @@
 package practice;
 
+import practice.ex1.SnowTire;
+import practice.ex2.AllSeasonTire;
+
 public class Main {
-    // 정사각형의 넓이
-    double areaRectangle(double width) {
-        return width * width;
-    }
+    // 부품 필드 선언
+    practice.ex1.Tire tire1 = new practice.ex1.Tire();
+    practice.ex2.Tire tire2 = new practice.ex2.Tire();
     
-    double areaRectangle(double width, double height) {
-        return width * height;
-    }
+    SnowTire tire3 = new SnowTire();
+    AllSeasonTire tire4 = new AllSeasonTire();
+    
+    
 }

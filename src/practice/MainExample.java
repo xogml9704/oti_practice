@@ -2,12 +2,8 @@ package practice;
 
 public class MainExample {
     public static void main(String[] args) {
-        Main main = new Main();
-        
-        double result1 = main.areaRectangle(10);
-        double result2 = main.areaRectangle(10, 20);
-        
-        System.out.println(result1);
-        System.out.println(result2);
+        // 상수 읽기
+        System.out.println("지구의 반지름 : " + Main.EARTH_RADIUS + "Km");
+        System.out.println("지구의 표면적 : " + Main.EARTH_SURFACE_AREA + "Km^2");
     }
 }
