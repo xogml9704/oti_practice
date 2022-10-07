@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionExample {
     public static void main(String[] args) {
+        /*
         Connection conn = null;
         try {
             // JDBC Driver 등록
@@ -21,8 +22,6 @@ public class ConnectionExample {
             
             // DB 작업
             // -- 
-            
-            
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -38,5 +37,19 @@ public class ConnectionExample {
                 
             }
         }
+        */
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            
+            try (Connection conn = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@192.168.0.15:1521/orcl", "java", "oracle");) {
+            System.out.println("연결 성공");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        
     }
 }
