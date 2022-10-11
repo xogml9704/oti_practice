@@ -1,11 +1,11 @@
-package practice;
+package ch20.oracle.sec08;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Main2 {
+public class BoardDeleteExample {
     public static void main(String[] args) {
         Connection conn = null;
         try {
@@ -15,32 +15,40 @@ public class Main2 {
             // 연결하기
             conn = DriverManager.getConnection(
                     "jdbc:oracle:thin:@localhost:1521/orcl",
-                    "java",
-                    "oracle"
+                    "java", // 계정
+                    "oracle" // 패스워드
                     );
+            System.out.println("연결 성공");
             
-            String sql = new StringBuilder()
-                    .append("delete from boards where bdate=? ")
-                    .toString();
-            
+            // DB 작업
+            String sql = "delete from boards where bwriter=?";
+            // PreparedStatement 얻기 및 값 지정
             PreparedStatement pstmt = conn.prepareStatement(sql);
             
-            pstmt.setDate(1, null);
+            pstmt.setString(1, "winter");
+            
+            // SQL 문 실행
+            int rows = pstmt.executeUpdate();
+            System.out.println("삭제된 행 수 : " + rows);
+            
             // PreparedStatement 닫기
             pstmt.close();
-        } catch (ClassNotFoundException e) {
+            
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+      //  } catch (SQLException e) {
+      //      e.printStackTrace();
         } finally {
-            if(conn != null) {
+            if (conn != null) {
+                // DB 연결 끊기
                 try {
-                    // 연결 끊기
                     conn.close();
                 } catch (SQLException e) {
-                    
                 }
+                System.out.println("연결 끊김");
+                
             }
         }
+        
     }
 }

@@ -1,15 +1,31 @@
 package practice;
 
-import practice.ex1.SnowTire;
-import practice.ex2.AllSeasonTire;
-
 public class Main {
-    // 부품 필드 선언
-    practice.ex1.Tire tire1 = new practice.ex1.Tire();
-    practice.ex2.Tire tire2 = new practice.ex2.Tire();
+    // 필드 선언
+    private int speed;
+    private boolean stop;
     
-    SnowTire tire3 = new SnowTire();
-    AllSeasonTire tire4 = new AllSeasonTire();
+    // speed 필드의 Getter/Setter 선언
+    public int getSpeed() {
+        return speed;
+    }
     
+    public void setSpeed(int speed) {
+        if(speed < 0) {
+            this.speed = 0;
+            return;
+        } else {
+            this.speed = speed;
+        }
+    }
     
+    // stop 필드의 Getter / Setter 선언
+    public boolean isStop() {
+        return stop;
+    }
+    
+    public void setStop(boolean stop) {
+        this.stop = stop;
+        if(stop == true) this.speed = 0;
+    }
 }
