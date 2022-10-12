@@ -1,31 +1,16 @@
 package practice;
 
 public class Main {
-    // 필드 선언
-    private int speed;
-    private boolean stop;
+    // private 접근 권한을 갖는 정적 필드 선언과 초기화
+    private static Main singleton = new Main();
     
-    // speed 필드의 Getter/Setter 선언
-    public int getSpeed() {
-        return speed;
+    // private 접근 권한을 갖는 생성자 선언
+    private Main() {
+        
     }
     
-    public void setSpeed(int speed) {
-        if(speed < 0) {
-            this.speed = 0;
-            return;
-        } else {
-            this.speed = speed;
-        }
-    }
-    
-    // stop 필드의 Getter / Setter 선언
-    public boolean isStop() {
-        return stop;
-    }
-    
-    public void setStop(boolean stop) {
-        this.stop = stop;
-        if(stop == true) this.speed = 0;
+    // public 접근 권한을 갖는 정적 메소드 선언
+    public static Main getInstance() {
+        return singleton;
     }
 }
