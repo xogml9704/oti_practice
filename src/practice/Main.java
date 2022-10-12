@@ -1,16 +1,16 @@
 package practice;
 
 public class Main {
-    // private 접근 권한을 갖는 정적 필드 선언과 초기화
-    private static Main singleton = new Main();
+    // 필드 선언
+    public String field1;
     
-    // private 접근 권한을 갖는 생성자 선언
-    private Main() {
-        
+    // 메소드 선언
+    public void method1() {
+        System.out.println("Parent-method1()");
     }
     
-    // public 접근 권한을 갖는 정적 메소드 선언
-    public static Main getInstance() {
-        return singleton;
+    // 메소드 선언
+    public void method2() {
+        System.out.println("Parent-method2()");
     }
 }

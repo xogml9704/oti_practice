@@ -2,14 +2,16 @@ package practice;
 
 public class MainExample {
     public static void main(String[] args) {
-        Main obj1 = Main.getInstance();
-        Main obj2 = Main.getInstance();
+        // 객체 생성 및 자동 타입 변환
+        Main main = new Main2();
         
-        // 동일한 객체를 참조하는지 확인
-        if(obj1 == obj2) {
-            System.out.println("같은 SIngleton 객체입니다.");
-        } else {
-            System.out.println("다른 Singleton 객체입니다.");
-        }
+        main.field1 = "data1";
+        main.method1();
+        main.method2();
+        
+        Main2 main2 = (Main2) main;
+        
+        main2.filed2 = "data2";
+        main2.method3();
     }
 }
