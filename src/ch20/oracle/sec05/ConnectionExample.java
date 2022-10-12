@@ -42,7 +42,7 @@ public class ConnectionExample {
             Class.forName("oracle.jdbc.OracleDriver");
             
             try (Connection conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@192.168.0.15:1521/orcl", "java", "oracle");) {
+                    "jdbc:oracle:thin:@192.168.0.14:1521/orcl", "java", "oracle");) {
             System.out.println("연결 성공");
         } catch (SQLException e) {
             e.printStackTrace();
