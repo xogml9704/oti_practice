@@ -7,13 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class BoardExample9 {
+public class Ex09 {
     // Field
     private Scanner scanner = new Scanner(System.in);
     private Connection conn;
+    private boolean logInOut = true;
+    private String name;
     
     // Constructor
-    public BoardExample9() {
+    public Ex09() {
         try {
             // JDBC Driver 등록
             Class.forName("oracle.jdbc.OracleDriver");
@@ -33,7 +35,12 @@ public class BoardExample9 {
     // Method
     public void list() {
         System.out.println();
-        System.out.println("[게시물 목록]");
+        if(logInOut) {
+            System.out.println("[게시물 목록]");
+        } else {
+            System.out.printf("[게시물 목록] 사용자 : %s", name);
+            System.out.println();
+        }
         System.out.println("----------------------------------------------------------");
         System.out.printf("%-6s%-12s%-16s%-40s\n", "no", "writer", "date", "title");
         System.out.println("----------------------------------------------------------");
@@ -68,16 +75,33 @@ public class BoardExample9 {
     public void mainMenu() {
         System.out.println();
         System.out.println("----------------------------------------------------------");
-        System.out.println("메인 메뉴 : 1.Create | 2.Read | 3.Clear | 4.Exit");
-        System.out.print("메뉴 선택 : ");
-        String menuNo = scanner.nextLine();
-        System.out.println();
-        
-        switch(menuNo) {
-            case "1" -> create();
-            case "2" -> read();
-            case "3" -> clear();
-            case "4" -> exit();
+        if(logInOut) {
+            System.out.println("메인 메뉴 : 1.Create | 2.Read | 3.Clear | 4.Join | 5.Login | 6.Exit");
+            System.out.print("메뉴 선택 : ");
+            String menuNo = scanner.nextLine();
+            System.out.println();
+            
+            switch(menuNo) {
+                case "1" -> create();
+                case "2" -> read();
+                case "3" -> clear();
+                case "4" -> join();
+                case "5" -> login();
+                case "6" -> exit();
+            }
+        } else {
+            System.out.println("메인 메뉴 : 1.Create | 2.Read | 3.Clear | 4.Logout | 5.Exit");
+            System.out.print("메뉴 선택 : ");
+            String menuNo = scanner.nextLine();
+            System.out.println();
+            
+            switch(menuNo) {
+                case "1" -> create();
+                case "2" -> read();
+                case "3" -> clear();
+                case "4" -> logout();
+                case "5" -> exit();
+            }
         }
     }
     
@@ -174,7 +198,9 @@ public class BoardExample9 {
         board.setBwriter(scanner.nextLine());
         
         // 보조 메뉴 출력
-
+        System.out.println("----------------------------------------------------------");
+        System.out.println("보조 메뉴 : 1.Ok | 2.Cancel ");
+        System.out.print("메뉴 선택 : ");
         String menuNo = scanner.nextLine();
         if(menuNo.equals("1")) {
             // boards 테이블에서 게시물 정보 수정
@@ -231,6 +257,89 @@ public class BoardExample9 {
         list();
     }
     
+    public void join() {
+        User user = new User();
+        System.out.println("[새 사용자 입력]");
+        System.out.print("아이디 : ");
+        user.setUserid(scanner.nextLine());
+        System.out.print("이름 : ");
+        user.setUsername(scanner.nextLine());
+        System.out.print("비밀번호 : ");
+        user.setUserpassword(scanner.nextLine());
+        System.out.print("나이 : ");
+        user.setUserage(Integer.parseInt(scanner.nextLine()));
+        System.out.print("이메일 : ");
+        user.setUseremail(scanner.nextLine());
+        
+        System.out.println("----------------------------------------------------------");
+        System.out.println("보조 메뉴 : 1.Ok | 2.Cancel");
+        System.out.print("메뉴 선택 : ");
+        String menuNo = scanner.nextLine();
+        if(menuNo.equals("1")) {
+            // User 테이블에 게시물 정보 저장
+            try {
+                String sql = "INSERT INTO users (userid, username, userpassword, userage, useremail) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, user.getUserid());
+                pstmt.setString(2, user.getUsername());
+                pstmt.setString(3, user.getUserpassword());
+                pstmt.setInt(4, user.getUserage());
+                pstmt.setString(5, user.getUseremail());
+                pstmt.executeUpdate();
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+                exit();
+            }
+        }
+        list();
+    }
+    
+    public void login() {
+        // login 정보 입력 받기
+        System.out.println("[로그인]");
+        System.out.print("아이디 : ");
+        name = scanner.nextLine();
+        System.out.print("비밀번호 : ");
+        String userpassword = scanner.nextLine();
+        
+        // 보조 메뉴 출력
+        System.out.println("----------------------------------------------------------");
+        System.out.println("보조 메뉴 : 1.Ok | 2.Cancel ");
+        System.out.print("메뉴 선택 : ");
+        String menuNo = scanner.nextLine();
+        if(menuNo.equals("1")) {
+            // user 테이블에서 게시물 정보 비교
+            try {
+                String sql = "SELECT userpassword from users where userid=?";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, name);
+                ResultSet rs = pstmt.executeQuery();
+                
+                if(rs.next()) {
+                    String userpassword2 = rs.getString("userpassword");
+                    if(userpassword.equals(userpassword2)) {
+                        logInOut = false;
+                    } else {
+                        System.out.println("비밀번호가 일치하지 않습니다.");
+                    }
+                    
+                } else {
+                    System.out.println("아이디가 존재하지 않습니다.");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                exit();
+            }
+        }
+        list();
+    }
+    
+    public void logout() {
+        logInOut = true;
+        list();
+    }
+    
     public void exit() {
         if(conn != null) {
             try {
@@ -242,7 +351,8 @@ public class BoardExample9 {
         System.exit(0);
     }
     public static void main(String[] args) {
-        BoardExample9 boardExample = new BoardExample9();
+        Ex09 boardExample = new Ex09();
         boardExample.list();
     }
+
 }
