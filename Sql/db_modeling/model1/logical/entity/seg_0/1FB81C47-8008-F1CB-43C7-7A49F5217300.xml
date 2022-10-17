@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1FB81C47-8008-F1CB-43C7-7A49F5217300" name="orders">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:22:15 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<engineerTo>
+<item key="08792129-6B6E-419F-18A9-BEB453B57885" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ono" id="31020830-AB5F-4B52-F059-1C94856B3374">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:27:15 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<engineerTo>
+<item key="08792129-6B6E-419F-18A9-BEB453B57885" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="odate" id="7A649B73-46E0-0283-AC5F-BAC531F6716A">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:27:31 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<engineerTo>
+<item key="08792129-6B6E-419F-18A9-BEB453B57885" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="userid" id="2354F430-3767-478A-9D2F-1CD64AC5DCFF">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:35:51 UTC</createdTime>
+<generatorID>231B27B9-32CD-5DB2-AE73-0A8914A99E23</generatorID>
+<ownerDesignName>model1</ownerDesignName>
+<engineerTo>
+<item key="08792129-6B6E-419F-18A9-BEB453B57885" value="true"/>
+</engineerTo>
+<referedAttribute>1055AF9C-E65B-DA6F-839E-5C20D4E96525</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="497BF49F-54F3-D228-A35F-A96BBBF92AF5" name="orders PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:36:11 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<engineerTo>
+<item key="08792129-6B6E-419F-18A9-BEB453B57885" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>31020830-AB5F-4B52-F059-1C94856B3374</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

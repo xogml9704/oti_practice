@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E0D6290B-F71B-5352-7354-AE8A4DAA0415" name="orderdetails">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:10:08 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ono" id="FBF5E55F-54B0-5031-ABD8-6FCA08AB0F96">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:10:49 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2E0E188E-2ABB-0010-2A7C-26FC4D9A53B5" referredColumn="E5806B67-2D8F-C2E2-2C32-E5F109A41F72"/>
+</associations>
+</Column>
+<Column name="pno" id="699001BA-3870-4421-A629-5EBCFB6E979D">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:11:06 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EFC90148-9EC8-EA4B-5867-4280ADA07EE1" referredColumn="9DB271C9-E9A7-3D20-8812-B447493EF498"/>
+</associations>
+</Column>
+<Column name="qty" id="E140856C-BBA2-6C2B-AD04-41A44E317BE4">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:13:36 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3A93E54B-98B2-F658-AA74-CA782200E9E6" name="orderdetails_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:20:14 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="699001BA-3870-4421-A629-5EBCFB6E979D"/>
+<colUsage columnID="FBF5E55F-54B0-5031-ABD8-6FCA08AB0F96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="66F324B2-73EA-2CA5-DC0A-F59F945E0E8D" name="orderdetails_orders_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:10:49 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FBF5E55F-54B0-5031-ABD8-6FCA08AB0F96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="39963A22-6E5C-DA4E-FFDF-1B003AFE0889" name="orderdetails_products_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:11:06 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="699001BA-3870-4421-A629-5EBCFB6E979D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

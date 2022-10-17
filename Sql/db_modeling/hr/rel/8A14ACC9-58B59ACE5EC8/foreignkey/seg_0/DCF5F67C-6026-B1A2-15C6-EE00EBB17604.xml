@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DCF5F67C-6026-B1A2-15C6-EE00EBB17604" containerWithKeyObject="5DA0454A-8DD1-BE98-E22A-B97442674FB5" localFKIndex="3277A8ED-1277-B7A6-E32F-2CD2FB002FC1" name="DEPT_MGR_FK">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>DEPT_MGR_FK</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:41:35 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<referredTableLongName>HR.EMPLOYEES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D47AD7C0-3067-F7F0-2AD6-8E681C82B2BF</referredTableID>
+<keyObject>43E275B2-BBB6-AA20-FD16-8F12AC876A24</keyObject>
+<referredKeyID>43E275B2-BBB6-AA20-FD16-8F12AC876A24</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>EMPLOYEE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

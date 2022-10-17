@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E19F018F-1580-0F16-A8D8-0AA7041E7F56" name="orders">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:41:27 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ono" id="E5806B67-2D8F-C2E2-2C32-E5F109A41F72">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:05:15 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="odate" id="AEB7AE6A-7A30-8EAF-81E7-CDFC75F49468">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:05:25 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="userid" id="6CC0EB84-B219-2DCA-B144-F8A579B4AFFE">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:07:31 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8445AFBC-0901-5FBB-EEBE-91E8DA28643F" referredColumn="1F561D56-1799-E04D-04EB-604C7938A9C2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8364A20C-0234-B2AA-85FF-BD89D7E69D87" name="orders_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:05:15 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5806B67-2D8F-C2E2-2C32-E5F109A41F72"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="97F2C227-ECE4-1CAA-E2E3-9A25552DEEED" name="orders_users_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:07:31 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6CC0EB84-B219-2DCA-B144-F8A579B4AFFE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

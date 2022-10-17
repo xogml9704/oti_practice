@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C6884EFC-C179-F358-8CFD-E95DE191A7AB" name="products">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:41:15 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pno" id="9DB271C9-E9A7-3D20-8812-B447493EF498">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:44:20 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pname" id="94D68E97-8EE3-52A7-D246-6AFD5567E626">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:44:25 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pprice" id="5FAEDDD9-FD03-F13D-CDA1-DC1919AE40E7">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:44:30 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<constraintName>pprice_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="pcompany" id="A326DB9B-B9F0-C69B-2A7B-0607C194BF63">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:44:35 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C21D0914-44CB-87CB-27AC-A93EE0BD706A" name="products_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:44:20 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DB271C9-E9A7-3D20-8812-B447493EF498"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F1FCC2B6-7DFF-D43B-B056-E263403B5BE4" name="users">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:40:46 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="userid" id="1F561D56-1799-E04D-04EB-604C7938A9C2">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:43:27 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="username" id="3BF41496-CF44-56D7-57F6-70BCB5E4EF4F">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:43:36 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="userpassword" id="55E54879-749C-A505-BD49-3B3FB89234A1">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:43:44 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usertel" id="18A352C1-4BE9-7EA8-61BB-2A817E95ABBD">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:43:50 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="useraddr" id="5042E268-D8B3-950C-4DF2-2B2480C82657">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:43:55 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E988EF6B-5A0A-A857-900A-44C620AE1829" name="users_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 05:43:27 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F561D56-1799-E04D-04EB-604C7938A9C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D1E5D15-E3CB-1815-92AD-E301EB4926BB" name="users__UNv2">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-14 06:15:02 UTC</createdTime>
+<ownerDesignName>model1</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="18A352C1-4BE9-7EA8-61BB-2A817E95ABBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
