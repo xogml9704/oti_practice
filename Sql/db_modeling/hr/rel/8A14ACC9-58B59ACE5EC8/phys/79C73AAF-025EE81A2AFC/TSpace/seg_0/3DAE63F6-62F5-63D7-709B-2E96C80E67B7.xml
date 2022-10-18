@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="SYSAUX" directorySegmentName="seg_0" id="3DAE63F6-62F5-63D7-709B-2E96C80E67B7">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>SYSAUX</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+</TableSpaceOraclev10g>

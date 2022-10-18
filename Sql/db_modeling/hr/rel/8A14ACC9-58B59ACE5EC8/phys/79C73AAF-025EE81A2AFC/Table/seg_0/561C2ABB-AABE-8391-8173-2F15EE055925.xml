@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="GRADE" directorySegmentName="seg_0" id="561C2ABB-AABE-8391-8173-2F15EE055925">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>AE2B21C9-A726-F357-0A8E-8495D396FDA4</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>022A4E58-6999-BED0-CA79-C76743A1190A</segment>
+<tableSpace>3DAE63F6-62F5-63D7-709B-2E96C80E67B7</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HI_SALARY" id="3C60940D-F144-3718-1192-731A5BF3FD8B">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GRADE_ID" id="921E72AE-E4B7-55E9-55BA-9D23513F7E83">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOW_SALARY" id="D5F86B75-5986-0373-8510-5EEF39BC140D">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="GRADE_PK" id="16FB0CB8-4B50-8EB1-F47C-692D4D5DD50A">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:50 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>AE2B21C9-A726-F357-0A8E-8495D396FDA4</schemaObject>
+<segment>4394861C-912E-AAB9-6E0F-8E438A45E09E</segment>
+<tableSpace>3DAE63F6-62F5-63D7-709B-2E96C80E67B7</tableSpace>
+<indexSegment>4394861C-912E-AAB9-6E0F-8E438A45E09E</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

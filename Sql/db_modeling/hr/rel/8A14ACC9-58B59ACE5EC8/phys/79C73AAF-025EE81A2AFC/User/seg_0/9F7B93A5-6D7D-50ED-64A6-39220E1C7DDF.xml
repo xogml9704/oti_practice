@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="HR" directorySegmentName="seg_0" id="9F7B93A5-6D7D-50ED-64A6-39220E1C7DDF">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjName>HR</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<schemaObject>AE2B21C9-A726-F357-0A8E-8495D396FDA4</schemaObject>
+<privileges>UNLIMITED TABLESPACE, ALTER SESSION, CREATE SESSION, CREATE SYNONYM, CREATE DATABASE LINK, CREATE SEQUENCE, CREATE VIEW</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="157162BE-6895-1F6C-25E6-8759B256413F">
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

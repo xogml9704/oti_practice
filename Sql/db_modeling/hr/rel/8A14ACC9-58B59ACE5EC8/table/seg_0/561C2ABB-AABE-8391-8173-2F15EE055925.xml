@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="561C2ABB-AABE-8391-8173-2F15EE055925" schemaObject="AE2B21C9-A726-F357-0A8E-8495D396FDA4" name="GRADE">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>GRADE</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GRADE_ID" id="921E72AE-E4B7-55E9-55BA-9D23513F7E83">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>GRADE</sourceObjSchema>
+<sourceObjName>GRADE_ID</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOW_SALARY" id="D5F86B75-5986-0373-8510-5EEF39BC140D">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>GRADE</sourceObjSchema>
+<sourceObjName>LOW_SALARY</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HI_SALARY" id="3C60940D-F144-3718-1192-731A5BF3FD8B">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>GRADE</sourceObjSchema>
+<sourceObjName>HI_SALARY</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:48 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="16FB0CB8-4B50-8EB1-F47C-692D4D5DD50A" schemaObject="AE2B21C9-A726-F357-0A8E-8495D396FDA4" name="GRADE_PK">
+<sourceConnName>localhost-hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>SYS_C007640</sourceObjName>
+<createdBy>KOSA</createdBy>
+<createdTime>2022-10-18 03:06:50 UTC</createdTime>
+<ownerDesignName>hr</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="921E72AE-E4B7-55E9-55BA-9D23513F7E83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
