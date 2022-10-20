@@ -1,6 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
    <object objectType="SchemaObject" objectID="AE2B21C9-A726-F357-0A8E-8495D396FDA4" name="HR" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.SchemaObject" propertyParentId="8A14ACC9-47E9-CB3C-6FF7-58B59ACE5EC8" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Table" objectID="561C2ABB-AABE-8391-8173-2F15EE055925" name="" seqName="seg_0" propertyClassName="" propertyParentId="" propertySourceId="" propertyTargetId=""/>
    <object objectType="Table" objectID="5D951BD8-3833-AE3D-99D3-B7203F87BC09" name="REGIONS" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="8A14ACC9-47E9-CB3C-6FF7-58B59ACE5EC8" propertySourceId="" propertyTargetId=""/>
    <object objectType="Table" objectID="5DA0454A-8DD1-BE98-E22A-B97442674FB5" name="DEPARTMENTS" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="8A14ACC9-47E9-CB3C-6FF7-58B59ACE5EC8" propertySourceId="" propertyTargetId=""/>
    <object objectType="Table" objectID="9DD8D35D-4954-A864-29CC-F7449ADCFA1C" name="JOB_HISTORY" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="8A14ACC9-47E9-CB3C-6FF7-58B59ACE5EC8" propertySourceId="" propertyTargetId=""/>
