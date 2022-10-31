@@ -1,59 +1,117 @@
 package project.categoryPackage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Scanner;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import project.categoryPackage.IntegrationDTO.AuthorDTO;
+import project.categoryPackage.IntegrationDTO.HashDTO;
+import project.categoryPackage.IntegrationDTO.IntegrationDTO;
 
 public class IntegrationDAO {
-    private Scanner scanner = new Scanner(System.in);
-    
-    public void Integration(String bookname) {
-        try {
-            String sql = "" +
-                    "SELECT b.book_no, book_name, book_publisher, book_price, max(author_name) a_max, avg(review_score) r_avg, count(d.user_id) d_count " +
-                    "FROM books b, author_book ab, authors a, reviews r, dibs d " +
-                    "WHERE b.book_no = ab.book_no " +
-                    "AND a.author_no = ab.author_no " +
-                    "AND r.book_no(+) = b.book_no " +
-                    "AND d.book_no(+) = b.book_no " +
-                    "AND (book_name LIKE ? OR author_name LIKE ? OR book_publisher LIKE ?) " +
-                    "GROUP BY b.book_no, book_name, book_publisher, book_price";
-            Search search = new Search();
-            PreparedStatement pstmt = search.conn.prepareStatement(sql);
-            pstmt.setString(1, "%"+bookname+"%");
-            pstmt.setString(2, "%"+bookname+"%");
-            pstmt.setString(3, "%"+bookname+"%");
-            ResultSet rs = pstmt.executeQuery();
-            while(rs.next()) {
-                IntegrationDto iDto = new IntegrationDto();
-                iDto.setBook_no(rs.getInt("book_no"));
-                iDto.setBook_name(rs.getString("book_name"));
-                iDto.setBook_publisher(rs.getString("book_publisher"));                
-                iDto.setBook_price(rs.getInt("book_price"));
-                iDto.setA_max(rs.getString("a_max"));
-                iDto.setR_avg(rs.getInt("r_avg"));
-                iDto.setD_count(rs.getInt("d_count"));
-                
-                System.out.print("책 번호 : " + iDto.getBook_no() + " | ");
-                System.out.print("책 이름 : " + iDto.getBook_name() + " | ");
-                System.out.print("책 배급사 : " + iDto.getBook_publisher() + " | ");
-                System.out.print("책 가격 : " + iDto.getBook_price() + " | ");
-                System.out.println();
-                System.out.print("작가 이름 : " + iDto.getA_max() + " | ");
-                System.out.print("평점 평균 : " + iDto.getR_avg() + " | ");
-                System.out.print("댓글 수 : " + iDto.getD_count() + " | ");
-                System.out.println();
-                System.out.println();
-            }
-            rs.close();
-            pstmt.close();
-            System.out.println("몇 번 책을 선택하시겠습니까? ");
-            System.out.print("-> ");
-            int bookno = Integer.parseInt(scanner.nextLine());
-            Bookboard Bboard = new Bookboard();
-            Bboard.board(bookno);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	/*
+	public static void main(String[] args) {
+		IntegrationDAO id = new IntegrationDAO();
+		id.Integration(ConnectionProvider.getConnection(), "주먹");
+	}
+	*/
+	
+	// 통합 검색 메소드
+	public ArrayList<IntegrationDTO> Integration(Connection conn, String search) {
+		ArrayList<IntegrationDTO> IntegrationList = new ArrayList<IntegrationDTO>();
+		try {
+			String sql = "SELECT b.book_no, b.book_name, b.book_publisher, b.book_price, avg(review_score) reviews_avg " +
+					"FROM books b, author_book ab, authors a, reviews r, dibs d, book_hash h " +
+					"WHERE b.book_no = ab.book_no " +
+					"AND a.author_no = ab.author_no " +
+					"AND r.book_no(+) = b.book_no " +
+					"AND d.book_no(+) = b.book_no " +
+					"AND h.book_no(+) = b.book_no " +
+					"AND (book_name LIKE ? OR author_name LIKE ? OR book_publisher LIKE ? OR hash_id LIKE ?) " +
+					"GROUP BY b.book_no, b.book_name, b.book_publisher, b.book_price ";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			pstmt.setString(2, "%"+search+"%");
+			pstmt.setString(3, "%"+search+"%");
+			pstmt.setString(4, "%"+search+"%");
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				IntegrationDTO iDto = new IntegrationDTO();
+				iDto.setBook_no(rs.getInt("book_no"));
+				iDto.setBook_name(rs.getString("book_name"));
+				iDto.setBook_publisher(rs.getString("book_publisher"));
+				iDto.setBook_price(rs.getInt("book_price"));
+				iDto.setReviews_avg(rs.getInt("reviews_avg"));
+				int book_no = iDto.getBook_no();
+				
+				// 이 책 번호로 등록된 저자 정보
+				ArrayList<AuthorDTO> authorlist = new ArrayList<AuthorDTO>();
+				try {
+					String sql2 = "SELECT author_name " +
+							"FROM books b, author_book ab, authors a " +
+							"WHERE b.book_no = ab.book_no " +
+							"AND a.author_no = ab.author_no " +
+							"AND b.book_no = ? ";
+					pstmt = conn.prepareStatement(sql2);
+					pstmt.setInt(1, book_no);
+					
+					ResultSet rs2 = pstmt.executeQuery();
+					
+					while(rs2.next()) {
+						AuthorDTO aDto = new AuthorDTO();
+						aDto.setAuthor_name(rs2.getString("author_name"));
+						authorlist.add(aDto);
+					}
+					rs2.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				// 이 책 번호로 등록된 해시태그 정보
+				ArrayList<HashDTO> hashlist = new ArrayList<HashDTO>();
+				try {
+					String sql3 = "SELECT hash_id " +
+							"FROM books b, book_hash h " +
+							"WHERE b.book_no = h.book_no " +
+							"AND b.book_no = ? ";
+					pstmt = conn.prepareStatement(sql3);
+					pstmt.setInt(1, book_no);
+					
+					ResultSet rs3 = pstmt.executeQuery();
+					while(rs3.next()) {
+						HashDTO hDto = new HashDTO();
+						hDto.setHash_id(rs3.getString("hash_id"));
+						hashlist.add(hDto);
+					}
+					rs3.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				iDto.setAuthor_name(authorlist);
+				iDto.setHash_id(hashlist);
+				IntegrationList.add(iDto);
+			}
+			rs.close();
+			pstmt.close();
+			
+			// 보여주기
+			for(IntegrationDTO i : IntegrationList) {
+				System.out.println(i);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return IntegrationList;
+	}
 }
